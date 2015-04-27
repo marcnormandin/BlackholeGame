@@ -441,12 +441,12 @@ public:
         
         mWindow = new Window ("operation touchdown", 0, 0, mWindowWidth, mWindowHeight);
         mRenderer = new Renderer (mWindow);
-        mSpaceshipSS = mRenderer->createSpriteSheet("spaceships.png");
-        mPhotonSS = mRenderer->createSpriteSheet("rocketTrail.png");
-        mSpaceshipBlue = mRenderer->createSpriteSheet("blueships1.png");
-        mBackground = mRenderer->createTexture("background.bmp");
-        mExplosionAnimation = mRenderer->createSpriteAnimation("explode_3.png", 4, 4);
-        mAsteroidAnimation = mRenderer->createSpriteAnimation("asteroid1.png", 5, 4);
+        mSpaceshipSS = mRenderer->createSpriteSheet("../data/spaceships.png");
+        mPhotonSS = mRenderer->createSpriteSheet("../data/rocketTrail.png");
+        mSpaceshipBlue = mRenderer->createSpriteSheet("../data/blueships1.png");
+        mBackground = mRenderer->createTexture("../data/background.bmp");
+        mExplosionAnimation = mRenderer->createSpriteAnimation("../data/explode_3.png", 4, 4);
+        mAsteroidAnimation = mRenderer->createSpriteAnimation("../data/asteroid1.png", 5, 4);
 
         createHumanSpaceship();
         

@@ -19,7 +19,7 @@ public:
         /*
          Primitive background music commented out to save on music downloads.
          
-        mMusic = Mix_LoadMUS( "music.wav" );
+        mMusic = Mix_LoadMUS( "../data/music.wav" );
         
         //If there was a problem loading the music
         if( mMusic == NULL )
@@ -31,8 +31,8 @@ public:
         */
         
         // effects
-        mFire = Mix_LoadWAV( "fire.wav" );
-        mExplosion = Mix_LoadWAV("explosion.wav");
+        mFire = Mix_LoadWAV( "../data/fire.wav" );
+        mExplosion = Mix_LoadWAV("../data/explosion.wav");
     }
     
     ~SoundSystem() {
