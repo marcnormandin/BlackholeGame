@@ -1,4 +1,10 @@
-<html>
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Black Hole Game</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
   <body>
     <div><h1></hw>Welcome to the website for Black Hole Game</h1></div>
     <div>General information
@@ -21,5 +27,142 @@
     <center>
     <img src="http://i.imgur.com/4aaPzbZ.png" width="50%" height="400px"/>
     </center>
+    
+    
+    
+    <div>
+<p>This example adds a input range bar to the previous example. In addition, it is linked to the animation itself.</p>
+</div>
+
+<div><button onclick="toggleAnimation()">Toggle Animation</button></div>
+<div><input id="rangeSlider" type="range" min="0" max="16" value="0" step="1"
+		onchange="showValue(this.value)"
+		onmouseover="showValue(this.value)" />
+	<span id="range">0</span>
+	<script>
+		function showValue(newValue) {
+			document.getElementById("range").innerHTML = newValue;
+		}
+	</script>
+</div>
+
+<div class="graph"></div>
+
+<script>
+	// Settings
+	var graph = { 
+				"width": 400, 
+				"height": 400,
+				"background color": "black",
+				"border width": 5,
+				"border color": "black" 
+				};
+	
+	// Set the main svg size
+	var svg = d3.select(".graph").append("svg")
+		.attr("width", graph.width)
+		.attr("height", graph.height);
+		
+	// Add a border around the svg
+	var borderPath = svg.append("rect")
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("width", graph.width)
+		.attr("height", graph.height)
+		.style("stroke", graph["border color"])
+		.style("stroke-width", graph["border width"])
+		.style("fill", graph["background color"]);
+		
+	
+	// Add a circle	
+	var particle = svg.append("circle")
+		.attr("cx", 0.1*graph.width)
+		.attr("cy", 0.1*graph.height)
+		.attr("r", 20)
+		.attr("fill", "red")
+		.attr("border",1);
+		
+	var label = svg.append("text")
+		.attr("x", graph.width/2)
+		.attr("y", graph.height/2)
+		.text(function(d) { return "hello"});
+	
+	var doAnimation = true;
+	var lastTime = 0;
+	var simulatedTime = 0;
+	var simulationPeriod = 8.0;
+	var lastGhostTime = 0;
+	var ghostsPerSecond = 10;
+	
+	d3.select("#rangeSlider")
+			.property("max", simulationPeriod-1.0);
+			
+	d3.timer( tickFunction );
+	
+	function tickFunction (elapsedTime) {
+		if (doAnimation) {
+			var timeDiff = elapsedTime - lastTime;
+			simulatedTime += timeDiff /1000;
+			
+			var T = simulationPeriod;
+			var f = 1.0 / T;
+			var t = simulatedTime;
+			var d = 2*Math.PI*f*t;
+
+			var newPositionX = (graph.width / (2.0) ) + graph.width/4.0 * Math.sin(d);
+			var newPositionY = (graph.height / (2.0) ) + graph.height/4.0 * Math.cos(d);
+				
+			// Create a ghost particle that will fade away
+			// Add a circle
+			if ((simulatedTime - lastGhostTime) > (1.0 / ghostsPerSecond)) 
+			{
+				var ghost = svg.append("circle")
+					.attr("cx", newPositionX)
+					.attr("cy", newPositionY)
+					.attr("r", 10)
+					.attr("fill", "rgba(255,255,0,0.5)")
+					.attr("border",1)
+					.transition()
+						.attr("r", 1)
+						.delay(0)
+						.duration(4000)
+						.each("end", function() {
+								d3.select(this).remove();
+							});
+							
+				lastGhostTime = simulatedTime;
+			}
+			
+			particle.attr("cx", newPositionX);
+			particle.attr("cy", newPositionY);
+		
+			label.attr("x", newPositionX)
+				.attr("y", newPositionY)
+				.style("fill", "white")
+				.text(function(d) { return "(" + Math.floor(+newPositionX) + ", " + Math.floor(+newPositionY) + ")"; });
+		}
+		
+		var sliderValue = Math.floor((simulatedTime) % (simulationPeriod));
+		console.log( sliderValue );
+		
+		// Update the input slider value
+		d3.select("#rangeSlider")
+			.property("value", sliderValue);
+			
+		// Update the slider label
+		showValue( sliderValue );
+		lastTime = elapsedTime;
+	}
+	
+	function toggleAnimation() {
+		if (doAnimation) {
+			doAnimation = false;
+		} else {
+			doAnimation = true;
+		}
+	}
+	
+</script>
+
   </body>
 </html>
