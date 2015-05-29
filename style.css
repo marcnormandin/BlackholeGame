@@ -1,98 +1,48 @@
-body, input, select, textarea {
-	color: #666;
+body {
+	color: #fff;
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
 	font-size: 13pt;
 	font-weight: 400;
 	line-height: 2em;
+	background-color:#222;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: #484848;
-	font-weight: 700;
-	line-height: 1em;
-	margin: 0 0 1em 0;
-	text-transform: uppercase;
+h1.title {
+	color:#387ff2;
 }
 
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-		color: inherit;
-		text-decoration: none;
-	}
-
-h2 {
-	font-size: 1.75em;
-	line-height: 1.5em;
+img.screenshot {
+	display:block;
+    margin-left: auto;
+    margin-right: auto;
+	border-style: outset;
+	border-color:#555;
+	border-radius:1em;
+	box-shadow: 0px 0px 15px #888888;
 }
 
-h3 {
-	font-size: 1.35em;
-	line-height: 1.5em;
-}
-
-h4 {
-	font-size: 1.1em;
-	line-height: 1.5em;
-}
-
-h5 {
-	font-size: 0.9em;
-	line-height: 1.5em;
-}
-
-h6 {
-	font-size: 0.7em;
-	line-height: 1.5em;
-}
-
-sub {
-	font-size: 0.8em;
-	position: relative;
-	top: 0.5em;
-}
-
-sup {
-	font-size: 0.8em;
-	position: relative;
-	top: -0.5em;
-}
-
-hr {
-	border: 0;
-	border-bottom: solid 1px rgba(144, 144, 144, 0.25);
-	margin: 2em 0;
-}
-
-	hr.major {
-		margin: 3em 0;
-	}
-
-blockquote {
-	border-left: solid 4px rgba(144, 144, 144, 0.25);
-	font-style: italic;
-	margin: 0 0 2em 0;
-	padding: 0.5em 0 0.5em 2em;
-}
-
-code {
-	background: rgba(144, 144, 144, 0.075);
-	border-radius: 4px;
-	border: solid 1px rgba(144, 144, 144, 0.25);
-	font-family: "Courier New", monospace;
-	font-size: 0.9em;
-	margin: 0 0.25em;
-	padding: 0.25em 0.65em;
+div.infobox {
+	color:#A9B1EF;
+	background-color:#000;
+	border-style: solid;
+	border-color: #172278;
+	margin:1em;
+	padding:1em;
+	border-radius:1em;
+	box-shadow: 10px 10px 15px #000;
 }
 
 #top {
-	margin: 20px 20px 0px 20px;
-	padding: 10px;
+	margin:0;
+	padding: 1em;
 	/*border: 5px solid #FFF;*/
-	background: #FFF;
+	background: #000;
 	height: 100px; /* ie5win fudge begins */
 	voice-family: "\"}\"";
 	voice-family:inherit;
 	height: 70px;
 	text-align: center;
+	border-bottom: 0.5em solid #387ff2;
 	}
 html>body #top {
 	height: 70px; /* ie5win fudge ends */
@@ -101,38 +51,75 @@ html>body #top {
 	position: absolute;
 	top: 120px;
 	left: 0px;
-	margin: 20px;
-	padding: 10px;
-	border: 5px solid #ccc;
-	background: #666;
-	width: 150px; /* ie5win fudge begins */
-	voice-family: "\"}\"";
-	voice-family:inherit;
+	margin: 0;
+	padding: 2em;
+	background: #111;
 	width: 120px;
+	height: 100%;
 	}
 html>body #left {
 	width: 120px; /* ie5win fudge ends */
 	}
 #middle {
-	margin: 20px 190px 20px 190px;
+	margin: 0px 250px 0px 190px;
 	padding: 10px;
+	/*background-image:url('http://www.publicdomainpictures.net/download-picture.php?adresar=70000&soubor=stars-in-the-night-sky.jpg');*/
+	/*border-left:0.2em solid #000;
+	border-right:0.2em solid #000;*/
 	/*border: 5px solid #ccc;*/
-	background: #FFF;
+	/*background: #FFF;*/
 	}
 #right {
 	position: absolute;
 	top: 120px;
-	right: 0px; /* Opera5.02 will show a space 
-	at right when there is no scroll bar */
-	margin: 20px;
-	padding: 10px;
-	border: 5px solid #ccc;
-	background: #666;
-	width: 150px; /* ie5win fudge begins */
-	voice-family: "\"}\"";
-	voice-family:inherit;
-	width: 120px;
-	}
+	right: 0px;
+	margin: 0px;
+	padding: 1em;
+	background: #111;
+	/*width: 120px;*/
+	/*height: 100%;*/
+	box-shadow: 5px 5px 15px #888888;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+}
 html>body #right {
 	width: 120px; /* ie5win fudge ends */
 	}
+	
+nav.sidebarmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.sidebarmenu li {
+	margin:0;
+	padding:0;
+    display: block;
+	border-top: 1px solid blue;
+}
+
+nav.sidebarmenu a {
+	color: #3145D8;
+    display: block;
+    text-decoration: none;
+}
+
+nav.sidebarmenu a:hover {
+	color:#A9B1EF;
+    background-color:#3145D8;
+}
+
+a:visited {
+	color:#fff;
+}
+
+div.footer {
+	color:#555;
+	margin:0;
+	padding: 1em;
+	background: #000;
+	height: 1em;
+	text-align: right;
+	border-top: 0.7em solid #387ff2;
+}
