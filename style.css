@@ -1,3 +1,4 @@
+html,
 body {
 	color: #fff;
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
@@ -5,20 +6,53 @@ body {
 	font-weight: 400;
 	line-height: 2em;
 	background-color:#222;
+	margin:0;
+	padding:0;
+	height:100%;
 }
+#container {
+	/* The only use of this is to leave room for the footer, 
+	so padding-bottom must be same height as footer height. */
+	min-height:100%;
+	position:relative;
+}
+#header {
+	padding:2em;
 
-h1.title {
+	background:#000;
+	border-bottom: 0.5em solid #387ff2;
+	text-align:center;
+}
+#header h1 {
+	display:inline;;
+	vertical-align: middle;
 	color:#387ff2;
 }
+#content {
+	/* The only reason of content is to wrap the body (sic)
+	and leave enough space for the footer */
+	padding-bottom:5em;
+}
+#footer {
+	width:100%;
+	height:5em;
+	position:absolute;
+	bottom:0;
+	left:0;
+	
+	color:#555;
+	background: #000;
+	border-top: 0.7em solid #387ff2;
+}
+#footer div.textblock {
+	text-align: right;
+	margin: 1em;
+	font-style:italic;
+}
 
-img.screenshot {
-	display:block;
-    margin-left: auto;
-    margin-right: auto;
-	border-style: outset;
-	border-color:#555;
-	border-radius:1em;
-	box-shadow: 0px 0px 15px #888888;
+#middle {
+	margin: 0px 250px 0px 190px;
+	padding: 10px;
 }
 
 div.infobox {
@@ -26,100 +60,19 @@ div.infobox {
 	background-color:#000;
 	border-style: solid;
 	border-color: #172278;
-	margin:1em;
+	margin:2.5em;
 	padding:1em;
 	border-radius:1em;
 	box-shadow: 10px 10px 15px #000;
 }
 
-#top {
-	margin:0;
-	padding: 1em;
-	/*border: 5px solid #FFF;*/
-	background: #000;
-	height: 100px; /* ie5win fudge begins */
-	voice-family: "\"}\"";
-	voice-family:inherit;
-	height: 70px;
-	text-align: center;
-	border-bottom: 0.5em solid #387ff2;
-	}
-html>body #top {
-	height: 70px; /* ie5win fudge ends */
-	}
-#left {
-	position: absolute;
-	top: 120px;
-	left: 0px;
-	margin: 0;
-	padding: 2em;
-	background: #111;
-	width: 120px;
-	height: 100%;
-	}
-html>body #left {
-	width: 120px; /* ie5win fudge ends */
-	}
-#middle {
-	margin: 0px 250px 0px 190px;
-	padding: 10px;
-	/*background-image:url('http://www.publicdomainpictures.net/download-picture.php?adresar=70000&soubor=stars-in-the-night-sky.jpg');*/
-	/*border-left:0.2em solid #000;
-	border-right:0.2em solid #000;*/
-	/*border: 5px solid #ccc;*/
-	/*background: #FFF;*/
-	}
-#right {
-	position: absolute;
-	top: 120px;
-	right: 0px;
-	margin: 0px;
-	padding: 1em;
-	background: #111;
-	/*width: 120px;*/
-	/*height: 100%;*/
-	box-shadow: 5px 5px 15px #888888;
-	border-bottom: 1px solid #fff;
-	border-left: 1px solid #fff;
-}
-html>body #right {
-	width: 120px; /* ie5win fudge ends */
-	}
-	
-nav.sidebarmenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav.sidebarmenu li {
-	margin:0;
-	padding:0;
-    display: block;
-	border-top: 1px solid blue;
-}
-
-nav.sidebarmenu a {
-	color: #3145D8;
-    display: block;
-    text-decoration: none;
-}
-
-nav.sidebarmenu a:hover {
-	color:#A9B1EF;
-    background-color:#3145D8;
-}
-
-a:visited {
-	color:#fff;
-}
-
-div.footer {
-	color:#555;
-	margin:0;
-	padding: 1em;
-	background: #000;
-	height: 1em;
-	text-align: right;
-	border-top: 0.7em solid #387ff2;
+img.screenshot {
+	display:block;
+	margin: 2em 0 2em 0;
+    margin-left: auto;
+    margin-right: auto;
+	border-style: outset;
+	border-color:#555;
+	border-radius:1em;
+	box-shadow: 0px 0px 15px #888;
 }
